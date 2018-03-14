@@ -1,0 +1,75 @@
+{
+  "name": "news",
+  "version": "1.2.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "oly2018": "gulp oly2018",
+    "vote2018": "node vote2018.js"
+  },
+  "paths": {
+    "wcup2018_pc": {
+      "src": "new_trunk/special/wcup2018/pc/src/",
+      "dist": "new_trunk/special/wcup2018/pc/dist/",
+      "images": "new_trunk/images/wcup2018/pc/",
+      "spriteSrc": "../../../../../images/wcup2018/pc/"
+    },
+    "wcup2018_m": {
+      "src": "new_trunk/special/wcup2018/m/src/",
+      "dist": "new_trunk/special/wcup2018/m/dist/",
+      "images": "new_trunk/images/wcup2018/m/",
+      "spriteSrc": "../../../../../images/wcup2018/m/"
+    },
+    "vote2018_pc": {
+      "src": "new_trunk/special/vote2018/pc/src/",
+      "dist": "new_trunk/special/vote2018/pc/dist/",
+      "images": "new_trunk/images/vote2018/pc/",
+      "spriteSrc": "../../../../../images/vote2018/pc/"
+    },
+    "vote2018_m": {
+      "src": "new_trunk/special/vote2018/m/src/",
+      "dist": "new_trunk/special/vote2018/m/dist/",
+      "images": "new_trunk/images/vote2018/m/",
+      "spriteSrc": "../../../../../images/vote2018/m/"
+    },
+    "regacy_pc": {
+      "trunk": "new_trunk/pc/",
+      "src": "new_trunk/pc/src/doc/",
+      "dist": "new_trunk/pc/release/html/"
+    },
+    "regacy_m": {
+      "trunk": "new_trunk/m/",
+      "src": "new_trunk/m/src/doc/",
+      "dist": "new_trunk/m/release/html/"
+    }
+  },
+  "dependencies": {
+    "browser-sync": "^2.23.6",
+    "chokidar": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-convert-encoding": "^1.0.0",
+    "gulp-copy": "^1.0.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-file-include": "^1.0.0",
+    "gulp-less": "^3.3.0",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-minify": "^2.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^3.1.0",
+    "gulp-size": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-task-loader": "^1.4.4",
+    "gulp-watch": "^4.3.11",
+    "gulp.spritesmith": "^6.2.1",
+    "iconv-lite": "^0.4.18",
+    "inquirer": "^3.0.6",
+    "jschardet": "^1.4.2",
+    "run-sequence": "^1.2.2",
+    "yargs": "^6.5.0"
+  }
+}
