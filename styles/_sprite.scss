@@ -1,0 +1,211 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$arr-blue-top-name: 'arr-blue-top';
+$arr-blue-top-x: 222px;
+$arr-blue-top-y: 151px;
+$arr-blue-top-offset-x: -222px;
+$arr-blue-top-offset-y: -151px;
+$arr-blue-top-width: 28px;
+$arr-blue-top-height: 18px;
+$arr-blue-top-total-width: 250px;
+$arr-blue-top-total-height: 231px;
+$arr-blue-top-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$arr-blue-top: (222px, 151px, -222px, -151px, 28px, 18px, 250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', 'arr-blue-top', );
+$arr-blue-name: 'arr-blue';
+$arr-blue-x: 184px;
+$arr-blue-y: 151px;
+$arr-blue-offset-x: -184px;
+$arr-blue-offset-y: -151px;
+$arr-blue-width: 28px;
+$arr-blue-height: 18px;
+$arr-blue-total-width: 250px;
+$arr-blue-total-height: 231px;
+$arr-blue-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$arr-blue: (184px, 151px, -184px, -151px, 28px, 18px, 250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', 'arr-blue', );
+$arr-down-name: 'arr-down';
+$arr-down-x: 26px;
+$arr-down-y: 207px;
+$arr-down-offset-x: -26px;
+$arr-down-offset-y: -207px;
+$arr-down-width: 24px;
+$arr-down-height: 15px;
+$arr-down-total-width: 250px;
+$arr-down-total-height: 231px;
+$arr-down-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$arr-down: (26px, 207px, -26px, -207px, 24px, 15px, 250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', 'arr-down', );
+$bg-tooltip-name: 'bg-tooltip';
+$bg-tooltip-x: 179px;
+$bg-tooltip-y: 114px;
+$bg-tooltip-offset-x: -179px;
+$bg-tooltip-offset-y: -114px;
+$bg-tooltip-width: 38px;
+$bg-tooltip-height: 18px;
+$bg-tooltip-total-width: 250px;
+$bg-tooltip-total-height: 231px;
+$bg-tooltip-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$bg-tooltip: (179px, 114px, -179px, -114px, 38px, 18px, 250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', 'bg-tooltip', );
+$btn-more-black-name: 'btn-more-black';
+$btn-more-black-x: 0px;
+$btn-more-black-y: 207px;
+$btn-more-black-offset-x: 0px;
+$btn-more-black-offset-y: -207px;
+$btn-more-black-width: 16px;
+$btn-more-black-height: 24px;
+$btn-more-black-total-width: 250px;
+$btn-more-black-total-height: 231px;
+$btn-more-black-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$btn-more-black: (0px, 207px, 0px, -207px, 16px, 24px, 250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', 'btn-more-black', );
+$btn-more-name: 'btn-more';
+$btn-more-x: 150px;
+$btn-more-y: 151px;
+$btn-more-offset-x: -150px;
+$btn-more-offset-y: -151px;
+$btn-more-width: 24px;
+$btn-more-height: 32px;
+$btn-more-total-width: 250px;
+$btn-more-total-height: 231px;
+$btn-more-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$btn-more: (150px, 151px, -150px, -151px, 24px, 32px, 250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', 'btn-more', );
+$btn-search-name: 'btn-search';
+$btn-search-x: 0px;
+$btn-search-y: 60px;
+$btn-search-offset-x: 0px;
+$btn-search-offset-y: -60px;
+$btn-search-width: 87px;
+$btn-search-height: 81px;
+$btn-search-total-width: 250px;
+$btn-search-total-height: 231px;
+$btn-search-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$btn-search: (0px, 60px, 0px, -60px, 87px, 81px, 250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', 'btn-search', );
+$d-name: 'd-';
+$d-x: 90px;
+$d-y: 151px;
+$d-offset-x: -90px;
+$d-offset-y: -151px;
+$d-width: 50px;
+$d-height: 36px;
+$d-total-width: 250px;
+$d-total-height: 231px;
+$d-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$d-: (90px, 151px, -90px, -151px, 50px, 36px, 250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', 'd-', );
+$dday-name: 'dday';
+$dday-x: 0px;
+$dday-y: 151px;
+$dday-offset-x: 0px;
+$dday-offset-y: -151px;
+$dday-width: 80px;
+$dday-height: 46px;
+$dday-total-width: 250px;
+$dday-total-height: 231px;
+$dday-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$dday: (0px, 151px, 0px, -151px, 80px, 46px, 250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', 'dday', );
+$head-logo-name: 'head-logo';
+$head-logo-x: 0px;
+$head-logo-y: 0px;
+$head-logo-offset-x: 0px;
+$head-logo-offset-y: 0px;
+$head-logo-width: 250px;
+$head-logo-height: 50px;
+$head-logo-total-width: 250px;
+$head-logo-total-height: 231px;
+$head-logo-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$head-logo: (0px, 0px, 0px, 0px, 250px, 50px, 250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', 'head-logo', );
+$head-share-name: 'head-share';
+$head-share-x: 179px;
+$head-share-y: 60px;
+$head-share-offset-x: -179px;
+$head-share-offset-y: -60px;
+$head-share-width: 46px;
+$head-share-height: 44px;
+$head-share-total-width: 250px;
+$head-share-total-height: 231px;
+$head-share-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$head-share: (179px, 60px, -179px, -60px, 46px, 44px, 250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', 'head-share', );
+$hlabel-all-name: 'hlabel-all';
+$hlabel-all-x: 97px;
+$hlabel-all-y: 60px;
+$hlabel-all-offset-x: -97px;
+$hlabel-all-offset-y: -60px;
+$hlabel-all-width: 72px;
+$hlabel-all-height: 72px;
+$hlabel-all-total-width: 250px;
+$hlabel-all-total-height: 231px;
+$hlabel-all-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$hlabel-all: (97px, 60px, -97px, -60px, 72px, 72px, 250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', 'hlabel-all', );
+$spritesheet-width: 250px;
+$spritesheet-height: 231px;
+$spritesheet-image: '../../../../../images/vote2018/m/sprite.png?1524446855115';
+$spritesheet-sprites: ($arr-blue-top, $arr-blue, $arr-down, $bg-tooltip, $btn-more-black, $btn-more, $btn-search, $d-, $dday, $head-logo, $head-share, $hlabel-all, );
+$spritesheet: (250px, 231px, '../../../../../images/vote2018/m/sprite.png?1524446855115', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

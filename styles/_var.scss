@@ -1,0 +1,261 @@
+@mixin sprite-width-2x($sprite) {
+  width: nth($sprite, 5) / 2;
+}
+
+@mixin sprite-left($sprite) {
+  margin-left: nth($sprite, 5) / 2;
+}
+
+@mixin sprite-height-2x($sprite) {
+  height: nth($sprite, 6) / 2;
+}
+
+@mixin sprite-position-2x($sprite) {
+  $sprite-offset-x: nth($sprite, 3) / 2;
+  $sprite-offset-y: nth($sprite, 4) / 2;
+  background-position: convertPx($sprite-offset-x, $sprite-offset-y);
+}
+// 0px > 0 으로 치환하기
+@function convertPx($sprite-offset-x, $sprite-offset-y) {
+  @if ($sprite-offset-x == 0px) {
+    $sprite-offset-x: 0
+  }
+  @if ($sprite-offset-y == 0px) {
+    $sprite-offset-y: 0
+  }
+  @return $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-2x($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position-2x($sprite);
+  @include sprite-width-2x($sprite);
+  @include sprite-height-2x($sprite);
+  background-size: $spritesheet-width / 2 auto;
+}
+// 레티나 이미지 배경처리
+// .n1{@include ir2($btn-pltaos);}
+
+@mixin ir2($sprite){
+  background: none;
+  @include sprite-2x($sprite);
+  color: transparent;
+  font-size: 9px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+// 레티나 배경이미지 상하 중앙 정렬
+@mixin ir2-center($sprite){
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: - nth($sprite, 5) / 4;
+  margin-top: - nth($sprite, 6) / 4;
+}
+// 멀티줄임말
+@mixin ell($n){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  -webkit-line-clamp: $n;
+}
+// 속성애니매이션
+@mixin ani($s){
+  -webkit-transition: all $s;
+  transition: all $s;
+}
+
+// 메인컬러
+$red : #b80716;
+$black : #222;
+$gray: #e0e0e0;
+$mcolor: #6d7ff4;
+$blue: #5060c6;
+// 클러스터 구분선 색상
+$cyan: #43c6d5;
+$ROOT: '../../../../../images';
+$is_card_date: #838383;
+// 폰트체
+$font : 'helvetica', 'APPLE SD Gothic Neo', 'NanumGothic', sans-serif;
+
+// 동그라미 이미지
+@mixin thumb($n){
+  width: $n;
+  height: $n;
+  border-radius: $n;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 0;
+  position: relative;
+  img {
+    display: block;
+    width: $n+2;
+    height: $n+2;
+    border-radius: $n+2;
+    margin-left: -1px;
+    margin-top: -1px;
+    position: relative;
+    z-index: -1;
+  }
+}
+
+@mixin lh($n) {
+  height: #{$n}px;
+  line-height: #{$n}px;
+}
+
+
+@mixin hrStyle($color, $h){
+  background-color: $color;
+  display: block;
+  border: 0;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: $h;
+  border-top: 1px solid $gray;
+  border-bottom: 1px solid $gray;
+}
+
+// CSS 삼각형 만들기
+@mixin arrow($direction, $size, $color) {
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  display: inline-block;
+  @if $direction == 'up' {
+    border-left: #{$size}px solid transparent;
+    border-right: #{$size}px solid transparent;
+    border-bottom: #{$size}px solid $color;
+  }
+  @else if $direction == 'down' {
+    border-left: #{$size}px solid transparent;
+    border-right: #{$size}px solid transparent;
+    border-top: #{$size}px solid $color;
+  }
+  @else if $direction == 'right' {
+    border-top: #{$size}px solid transparent;
+    border-bottom: #{$size}px solid transparent;
+    border-left: #{$size}px solid $color;
+  }
+  @else if $direction == 'left' {
+    border-top: #{$size}px solid transparent;
+    border-bottom: #{$size}px solid transparent;
+    border-right: #{$size}px solid $color;
+  }
+}
+
+@mixin h2-reset(){
+  font-size: 17px;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-weight: bold;
+  color: #111;
+  height: 51px;
+  line-height: 56px;
+}
+// 클러스터 > 더보기 스타일
+@mixin vt-more($x, $y) {
+  position: absolute;
+  right: $x;
+  top: $y;
+  padding: 10px 13px;
+  .icon{
+    @include ir2($btn-more)
+  }
+}
+// 공통 모듈 > 페이징 스타일
+@mixin vt-page() {
+  .pageNav{
+    font-size: 0;
+    padding: 20px 0;
+    button{display: none;}
+    .pagenum{
+      font-size: 0;
+      margin: 0;
+      height: 8px;
+      vertical-align: top;
+    }
+    .num{
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      border: 1px solid $black;
+      box-sizing: border-box;
+      background: none;
+    }
+    .num.select {
+      background-color: $black;;
+    }
+  }
+}
+
+@mixin data-load($h){
+  display: block;
+  text-align: center;
+  @include lh($h);
+  position: relative;
+  border: 1px solid #dddde3;
+  background-color: #fff;
+  color: $black;
+  font-size: 14px;
+  letter-spacing: -1px;
+  &::after{
+    content: '';
+    @include ir2($arr-down);
+    vertical-align: middle;
+    position: relative;
+    right: -10px;
+    top: -1px;
+  }
+}
+
+
+hr.space{
+  display: block;
+  height: 30px;
+  background: rgba(0,100,10, .1);
+  border: 0;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.ir_test{
+  //@include ir2($bg-g18);
+}
+
+
+
+
+#skip{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+#skip a{
+  position: absolute;
+  left: -999em;
+  top: 0;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  background-color: #000;
+  color: #fff;
+}
+
+#skip a:focus, #skip a:active{
+  position: relative;
+  left: 0;
+  z-index: 999;
+  padding: 10px;
+  border: 1px dotted #ffb4db;
+}

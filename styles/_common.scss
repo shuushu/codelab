@@ -1,0 +1,1604 @@
+a, a:visited, a, a:active, a:hover, a:link{
+  color: #000;
+}
+$clan1 : #3888f4;
+$clan2 : #d32f2e;
+$clan3 : #2bc2c8;
+$clan4 : #4dc730;
+$clan5 : #ffa800;
+$clan6 : #999171;
+
+// 정당색
+.clan1{color: $clan1;}
+.clan2{color: $clan2;}
+.clan3{color: $clan3;}
+.clan4{color: $clan4;}
+.clan5{color: $clan5;}
+.clan6{color: $clan6;}
+// 후보자상태
+@mixin cddcm($ww){
+  display: inline-block;
+  @include lh(24);
+  font-size: 14px;
+  padding: 0 8px;
+  overflow: hidden;
+  color: #fff;
+  vertical-align: middle;
+  letter-spacing: -0.04em;
+}
+// 당선
+.cdd1 span{
+  @include cddcm(35);
+  background-color: rgba(255,168,0,.9);
+}
+.cdd2 span, .cdd3 span, .cdd4 span, .cdd5 span{
+  @include cddcm(35);
+  background-color: $black
+}
+
+
+.vt-float-top{
+  position: fixed;
+  right: 12px;
+  bottom: 11px;
+  z-index: 10;
+  @include ir2($icon-top);
+  &:visited, &:active, &:hover, &:link{
+    color: transparent;
+  }
+
+}
+// 구분선
+.vt-space{
+  @include hrStyle(#f4f4f4, 8px)
+}
+// 셀렉트 디자인
+.vt-select{
+  font-size: 15px;
+  text-indent: 5px;
+  height: 41px;
+  -webkit-appearance: none;
+  position: relative;
+  background: url($ROOT + '/vote2018/m/ico-select.png') 96% center no-repeat;
+  background-size: 12px 8px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  padding-right: 26px;
+  &:focus{
+    border: 1px solid #000;
+  }
+}
+.vt-btn{
+  font-size: 12px;
+  border: 0;
+  height: 28px;
+  width: 40px
+}
+// 후보자 검색
+.vt-select-area{
+  position: relative;
+  font-size: 0;
+
+  .vt-btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include ir2($btn-search)
+  }
+  > div{
+    position: relative;
+    font-size: 0;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+  }
+  > div:last-child{
+    padding-right: 50px;
+    margin-bottom: 0;
+  }
+  span.vt-select-wrap{
+    display: inline-block;
+    font-size: 0;
+    box-sizing: border-box;
+    &::after{
+      content: '';
+      display: block;
+      width: 20px;
+      height: 39px;
+      position: absolute;
+      right: 22px;
+      top: 1px;
+      background:linear-gradient(to right, rgba(255,255,255,0), white 60%);
+    }
+  }
+
+  .vt-select{
+    width: 100%;
+  }
+
+
+  .cell2{
+    position: relative;
+    height: 41px;
+    .vt-select-wrap{
+      width: 49%;
+      position: absolute;
+      top: 0;
+      select{
+        background-position: 93% center;
+      }
+    }
+    .vt-select-wrap:nth-child(1){
+      left: 0;
+    }
+    .vt-select-wrap:nth-child(2){
+      right: 0;
+    }
+  }
+}
+// 클래스네이밍 정리
+// vt-overwrite : 라이브 UI CSS 재사용
+// vt-cluster : 라이브 클러스터 재사용
+// vt-module : 신규 모듈
+
+.sc_out{
+  color: transparent;
+  position: absolute;
+  left: -999em;
+}
+// 99. 오버라이트
+.vt-overwrite{
+  margin: 0 13px;
+  position: relative;
+  @include vt-page();
+
+  h2{
+    padding: 0;
+    @include h2-reset();
+  }
+  .more-cluster{
+    @include vt-more(-2px, 21px);
+  }
+
+  // 대립형 | 비하인드뉴스
+  .is_card {
+    padding: 0;
+    box-shadow: none;
+    background: none;
+    h2 {
+      @include h2-reset();
+    }
+    .mlt01 .lt1 {
+      padding: 10px 0;
+      margin: 0;
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+    .more-cluster{
+      right: -13px;
+      top: 11px;
+    }
+    .cluster_dr .lt1{
+      a > span{
+        padding: 8px 0;
+      }
+      a > span.ib{
+        padding: 0;
+        & + .tb{
+          padding: 0;
+        }
+      }
+    }
+  }
+  // 랭킹뉴스
+  .list_plast{
+    &::after{
+      display: none;
+    }
+
+    .numeric li{
+      padding: 0;
+      a::before{
+        color: $mcolor;
+      }
+    }
+    & + .more-cluster{
+      right: -13px;
+      top: 11px;
+    }
+  }
+  // 지방선거포토
+  .new_photoList, .photoList{
+    padding: 0;
+    margin: 0;
+
+    & + .more-cluster{
+      top: 13px;
+      right: -10px;
+    }
+  }
+  .new_photoList .txt{
+    letter-spacing: -0.05em;
+    font-weight: 300;
+  }
+}
+
+// 99. 클러스터
+.vt-cluster{
+  position: relative;
+  overflow: hidden;
+  @include vt-page();
+
+  h2 {
+    padding-right: 13px;
+    @include h2-reset();
+  }
+  // 버튼
+  .more-cluster{
+    @include vt-more(0, 0);
+  }
+
+  // 그룹핫이슈 클러스터
+  .wrap_hotIssue{
+    background-color: #fff;
+    .is_card{
+      border: 0;
+      h2{
+        padding: 0;
+        margin-left: 13px;
+      }
+    }
+
+    .mlt01 .lt1,
+    .mlt01 .lt2_1{
+      margin-left: 13px;
+      margin-right: 13px;
+    }
+  }
+
+
+  // 대립형
+  .is_card {
+    padding: 0;
+    box-shadow: none;
+    background: none;
+    .mlt01 .lt2_1.ep{
+      padding-right: 0;
+    }
+    .mlt01 .lt1{
+      padding-top: 10px;
+    }
+  }
+
+  .lt1:first-child {
+    padding-top: 0;
+  }
+
+  .lt2:last-child{
+    background-color: rgba(0,0,0,.3)
+  }
+
+  .list_plast {
+    h2{
+      height: auto;
+      border: 0;
+      font-weight: normal;
+    }
+  }
+  // 나열형
+  .cluster_default{
+    padding-top: 0;
+    a > strong{
+      color: red;
+    }
+    li:last-child a{
+      border: 0;
+    }
+  }
+}
+
+// 플리킹(플로팅)
+.nav {
+  overflow: hidden;
+  position: relative;
+
+  .navTab {
+    position: relative;
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+    @mixin dummy(){
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 100%;
+      display: block;
+      background-color: #fff;
+      top: 0;
+    }
+    /*&::before{
+      @include dummy();
+      left: 0;
+    }
+    &::after{
+      @include dummy();
+      right: 0;
+    }*/
+    li {
+      border: 1px solid $gray;
+      border-left: 0;
+      display: table-cell;
+      position: relative;
+      white-space: nowrap;
+      height: 52px;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 1.3;
+      background-color: #fff;
+      a {
+        display: table;
+        z-index: 3;
+        width: 97px;
+        height: 52px;
+        .item{
+          vertical-align: middle;
+          display: table-cell;
+          text-align: center;
+          color: inherit;
+          font-size: 16px;
+          letter-spacing: -0.05em ;
+        }
+      }
+      &:first-child{
+        border-left: 1px solid $gray;
+      }
+    }
+    .on{
+      background-color: $black;
+      border-color: $black;
+      a{
+        color: #fff;
+      }
+      &:first-child{
+        border-left: 1px solid $black;
+      }
+    }
+  }
+  // navTab END
+}
+
+// 플리킹 + 탭 + 인디게이터 UI
+.vt-tab {
+  padding-bottom: 5px;
+  .page{
+    display: table;
+    border-spacing: 1px;
+    background-color: $gray;
+    width: 100%;
+    a {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      background-color: #fff;
+      width: 33.3%;
+      font-size: 16px;
+      letter-spacing: -0.05em;
+      line-height: 1.3;
+      height: 52px;
+    }
+  }
+
+  a.on {
+    background-color: $black;
+    color: #fff;
+    position: relative;
+
+    &::before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 52px;
+      display: block;
+      left: -1px  ;
+      top: -1px;
+      border: 1px solid #000;
+    }
+  }
+  & + div{
+    .vt-cm-list:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// 뉴스 하단 더보기
+.more-link {
+  text-align: center;
+  font-size: 0;
+  display: block;
+  span {
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    font-size: 15px;
+    color: #9090a2;
+    position: relative;
+  }
+  span::after {
+    content: '';
+    //@include ir2($arrow-right-gray);
+    position: absolute;
+    top: 15px;
+    margin-left: 1px;
+  }
+}
+
+
+
+// 공통 모듈 네이밍
+.vt-module{
+  margin: 0 13px;
+  position: relative;
+  @include vt-page();
+  .more-cluster{
+    @include vt-more(-13px, 12px);
+  }
+  &.swipe-keyword{
+    margin: 0;
+    .vt-cluster-title{
+      margin-left: 13px;
+    }
+  }
+}
+// 후보자 검색
+.swipe-keyword.focus{
+  //margin-top: -5px;
+  .nav .navTab{
+    border-spacing: 5px;
+    background-color: #fff;
+    li{
+      height: 54px;
+      border: 1px solid #e0e0e0;
+      color: $black;
+    }
+    .on{
+      color: #fff;
+      border-color: #000;
+    }
+  }
+  .nav .navTab::before,
+  .nav .navTab::after{
+    display: none;
+  }
+}
+
+
+#vt-reasearch{
+  margin: 0;
+  .vt-cluster-title{
+    margin: 0 13px;
+  }
+  .more-cluster{
+    right: 0;
+  }
+  .item {
+    margin: 0 13px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  a{
+    display: block;
+    overflow: hidden;
+  }
+  .thumb{
+    position: relative;
+    display: block;
+    margin-top: 16px;
+    &::before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border: 1px solid #000;
+      opacity: .1;
+    }
+    & img{
+      display: block;
+      width: 100%;
+    }
+  }
+  .tit{
+    display: block;
+    font-size: 16px;
+    color: $black;
+    line-height: 1.2;
+    margin: 14px 0 5px;
+    letter-spacing: -0.05em;
+    @include ell(1)
+  }
+  .parag{
+    line-height: 1.2;
+    letter-spacing: -0.05em;
+    font-size: 16px;
+    @include ell(1)
+  }
+  .info{
+    display: block;
+    font-size: 0;
+    margin-top: 8px;
+    color: #a5a5a5;
+    letter-spacing: -0.05em;
+    padding-bottom: 3px;
+    .provider{
+      font-size: 12px;
+      margin-left: 5px;
+    }
+    time{
+      font-size: 12px;
+      letter-spacing: 0;
+    }
+    &.new::after{
+      content:'N';
+      color: red;
+      font-size: 11px;
+      margin-left: 3px;
+    }
+  }
+}
+.vt-member-list-nav{
+  padding: 12px 13px 5px 13px;
+  line-height: 1.3;
+}
+// 주요선거후보자
+#vt-member-list{
+  margin: 0;
+  .vt-cluster-title{
+    margin: 0 13px;
+  }
+  .more-cluster{
+    right: 13px;
+  }
+  .navTab {
+    border-spacing: 0;
+    background: none;
+    border-collapse: collapse;
+
+    li{
+      border: 0;
+    }
+    a{
+      height: auto;
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      width: 90px;
+    }
+    a::before{
+      content: '';
+      position: absolute;
+      width: 90px;
+      height: 120px;
+      border: 1px solid $black;
+      left: 0;
+      top: 0;
+      box-sizing: border-box;
+      opacity: .1;
+    }
+    .on{
+      background: none;
+    }
+    .on a::before{
+      border: 3px solid #3888f4;
+      opacity: 1;
+      width: 94px;
+      height: 124px;
+      left: -2px;
+      top: -2px;
+      z-index: 10;
+    }
+    .on .clan1::before{border-color: $clan1}
+    .on .clan2::before{border-color: $clan2}
+    .on .clan3::before{border-color: $clan3}
+    .on .clan4::before{border-color: $clan4}
+    .on .clan5::before{border-color: $clan5}
+    .on .clan6::before{border-color: $clan6}
+
+    .name{
+      font-size: 13px;
+      color: $black;
+      letter-spacing: -0.05em;
+      margin: 6px 0 1px 0;
+      display: block;
+      @include ell(1);
+      strong{
+        font-size: 18px;
+      }
+    }
+    .label{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 90px;
+      height: 120px;
+      > span{
+        position: absolute;
+        display: inline-block;
+        left: 0;
+        bottom: 0;
+      }
+    }
+    li{
+      vertical-align: top;
+      padding: 10px 5px 5px 5px;
+    }
+
+    .name, .cl{
+      display: block;
+      font-size: 14px;
+      width: 100px;
+      margin-left: -5px
+    }
+    .cdd2, .cdd3, .cdd4, .cdd5{
+      &::before{
+        content: '';
+        position: absolute;
+        display: block;
+        width: 90px;
+        height: 120px;
+        background-color: rgba(0,0,0, .65);
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+  img{
+    display: block;
+    margin: 0 auto;
+    width: 90px;
+    height: 120px;
+  }
+  .cl{
+    letter-spacing: -0.07em;
+    line-height: 1.3;
+  }
+  .clan1 .cl{color: $clan1}
+  .clan2 .cl{color: $clan2}
+  .clan3 .cl{color: $clan3}
+  .clan4 .cl{color: $clan4}
+  .clan5 .cl{color: $clan5}
+  .clan6 .cl{color: $clan6}
+
+  .clan1 .cdd1 > span{background-color: $clan1}
+  .clan2 .cdd1 > span{background-color: $clan2}
+  .clan3 .cdd1 > span{background-color: $clan3}
+  .clan4 .cdd1 > span{background-color: $clan4}
+  .clan5 .cdd1 > span{background-color: $clan5}
+  .clan6 .cdd1 > span{background-color: $clan6}
+}
+// 이슈발언체크
+.vt-cm-list{
+  overflow: hidden;
+  position: relative;
+  margin: 15px 0;
+  $s: 48px;
+  .wrap{
+    background-color: #f1f2f5;
+    display: block;
+    padding: 12px 12px 14px 12px;
+    border: 1px solid #e6e9ef;
+    border-radius: 2px;
+    text-align: left;
+
+    > span:first-child{
+      font-size: 13px;
+      letter-spacing: -0.05em;
+      line-height: 1.2;
+    }
+    > span:first-child,
+    > time:last-child{
+      display: block;
+    }
+  }
+  .state{
+    color: #838383;
+    margin-left: 3px;
+  }
+  .time{
+    color: #838383;
+    line-height: 1.3;
+    font-size: 12px;
+  }
+  .name{
+    font-size: 16px;
+    margin-right: 3px;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+  }
+  .link{
+    display: block;
+  }
+
+  .vti-thumb{
+    @include thumb($s);
+    position: absolute;
+    top: 0;
+    display: block;
+    border: 1px solid #e0e0e0;
+  }
+  .clan{
+    color: blue;
+  }
+  .parag{
+    display: block;
+    margin: 8px 0 3px;
+    line-height: 1.2;
+    font-size: 16px;
+    letter-spacing: -0.05em;
+    position: relative;
+    color: #000;
+    @include ell(1);
+  }
+  .now::after{
+    content: 'N';
+    width: 12px;
+    height: 12px;
+    font-size: 10px;
+    text-align: center;
+    color: #ed2823;
+    display: inline-block;
+    margin-left: 3px;
+    vertical-align: middle;
+  }
+  @mixin arrCopy($direction, $size, $color){
+    content:'';
+    position: absolute;
+    @include arrow($direction, $size, $color)
+  }
+
+  // 왼쪽
+  &.pl {
+    padding-left: $s + 10;
+    .vti-thumb{ left: 0; }
+    .parag::before{
+      left: -5px;
+      top: 7px;
+      //@include arrCopy('left', 5, #ccc);
+    }
+    .parag::after{
+      left: -4px;
+      top: 8px;
+      //@include arrCopy('left', 4, #fff)
+    }
+  }
+  // 오른쪽
+  &.pr {
+    text-align: right;
+    padding-right: $s + 10;
+    .vti-thumb{ right: 0; }
+    .parag{ text-align: left;}
+    .parag::before{
+      right: -5px;
+      top: 7px;
+      //@include arrCopy('right', 5, #ccc);
+    }
+    .parag::after{
+      right: -4px;
+      top: 8px;
+      //@include arrCopy('right', 4, #fff)
+    }
+  }
+}
+.vt-banner{
+  @mixin bd($c) {
+    border-top: 1px solid $c;
+    border-bottom: 1px solid $c;
+  }
+  @include bd(#e0e0e0);
+  font-size: 0;
+  background-color: #f4f4f4;
+  padding: 8px 0;
+  text-align: center;
+  a{
+    display: block;
+    background-color: #fff;
+    @include bd(#e0e0e0);
+  }
+  img{
+    width: 320px;
+  }
+}
+
+
+
+// 응원배너이미지
+.vt-banner-img{
+  a{display: block;font-size: 0;text-align: center;}
+}
+
+.vt-cluster-title{
+  @include h2-reset();
+}
+// 이시각화제발언
+.vt-itssue{
+  .dataSync{
+    .page{
+      display: table;
+      width: 100%;
+    }
+    .page.txt{
+      margin-bottom: 8px;
+      a{
+        height: 27px;
+        vertical-align: middle;
+      }
+      .name{
+        font-size: 15px;
+        line-height: 1.2;
+        color: $black;
+        position: relative;
+      }
+      .on .name{
+        font-weight: bold;
+        color: $blue;
+      }
+      .on .name::before{
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        margin-left: -8px;
+        @include arrow(up, 8, #5060c6)
+      }
+    }
+    a{
+      display: table-cell;
+      text-align: center;
+      height: 50px;
+      width: 20%;
+    }
+    a.on{
+      .thumb{
+        border: 1px solid #000;
+        box-sizing: border-box;
+      }
+    }
+    .thumb{
+      @include thumb(90%);
+      display: block;
+      margin: 0 auto;
+      //height: auto;
+    }
+    .name{
+      display: block;
+      height: 20px;
+    }
+  }
+  .tool-tip{
+     a{
+       width: 100%;
+       height: 95px;
+       display: table;
+       background-color: $blue;
+     }
+    .thumb{
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      width: 76px;
+      img{
+        border: 1px solid #e0e0e0;
+        box-sizing: border-box;
+        @include thumb(54px);
+      }
+    }
+    .wrap{
+      display: table-cell;
+      vertical-align: middle;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -0.05em;
+      .tit{
+        @include ell(1);
+        font-size: 17px;
+        margin-right: 10px;
+        margin-bottom: 4px;
+        height: 21px;
+      }
+      .parag{
+        display: block;
+        margin-right: 10px;
+        font-size: 15px;
+        line-height: 1.3;
+        @include ell(2);
+      }
+    }
+  }
+}
+
+// 한국 경기 일정/결과
+.game-schedules{
+  position: relative;
+  .tab{
+    position: absolute;
+    top: 30px;
+    width: 50%;
+    height: 30px;
+    background-color: rgba(23, 111, 32, 0.5);
+    &.n1{left: 0;}
+    &.n2{right: 0}
+    &.on{
+      color: #fff;
+      background-color: rgba(36, 45, 111, 0.9);
+    }
+  }
+  //한국 경기 일정
+  .list{
+    padding: 0 13px;
+
+  }
+  &.tab{
+    ul{padding-top: 30px;}
+  }
+}
+
+// 게임리스트
+.game-list{
+  padding: 5px 0;
+  border-top: 1px dashed #000;
+  > a{ display: block; }
+  .time-line{
+    display: block;
+    text-align: center;
+  }
+  .none {
+    width: 60px;
+    text-align: center;
+  }
+  .link-wrap {
+    display: table;
+    width: 100%;
+  }
+  .times, .nation, .score{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 12px;
+    text-align: center;
+  }
+  .times{
+    width: 50px;
+    > span{
+      display: block;
+    }
+  }
+  .score{
+    width: 70px;
+    text-align: center;
+    .pk, .now{
+      display: block;
+    }
+    .win{
+      color: red;
+    }
+  }
+  .nation{
+    font-size: 0;
+    img{
+      width: 40px;
+      height: 30px;
+    }
+    > span{
+      display: inline-block;
+      font-size: 12px;
+      vertical-align: top;
+      height: 30px;
+      line-height: 30px;
+    }
+    &.a{text-align: left;}
+    &.b{text-align: right;}
+  }
+  &.on > a{
+    position: relative;
+  }
+  &.on > a::before{
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid tomato;
+    box-sizing:border-box;
+  }
+  &:first-child {
+    border: 0;
+  }
+}
+
+// 조편성 > 이미지형
+.group-thumb{
+  overflow: hidden;
+  li{width: 25%;float: left;}
+  li a{ display: block; font-size: 0;text-align: center;}
+  li a > span{
+    display: block;
+    font-size: 12px;
+  }
+}
+
+// 토너먼트
+.tournament{
+  overflow: hidden;
+  a{
+    float: left;
+    width: 25%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-sizing: border-box;
+    text-align: center;
+    height: 30px;
+    line-height: 30px
+  }
+
+  .dataSync{
+    position: absolute;
+    left: -999em;
+  }
+}
+.copyTab{
+  .on{
+    background-color: chocolate;
+
+  }
+}
+
+// 아이프레임 배너
+.oly2018-banner{
+  padding: 6px 0;
+  background: #f4f4f7;
+  font-size: 0;
+}
+
+.adv img{
+  width: 100%;
+}
+
+// 전적결과
+.rank-table {
+  .head {
+    display: table;
+    width: 100%
+  }
+  .head li {
+    display: table-cell;
+    height: 35px;
+    line-height: 35px;
+    color: #a2a2a2;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+    width: 40px;
+    &.n2 {
+      width: auto;
+      text-align: left;
+      text-indent: 30px;
+    }
+    &.n7 {
+      width: 60px;
+    }
+  }
+}
+// 게임랭킹
+.game-rank{
+  position:relative;
+  display:table;
+  width:100%;
+  .cell{
+    display:table-cell;
+    width:40px;
+    text-align:center;
+    vertical-align: middle;
+    border-bottom:1px solid #f2f2f2
+  }
+  .country{
+    width:auto;
+    font-size:0;
+    text-align:left;
+    .ico{
+      display:inline-block;
+      vertical-align:middle;
+    }
+    .nat{
+      //@include ell(1);
+      font-size: 12px;
+      vertical-align:middle
+    }
+  }
+  .rank{ text-align: center;}
+  .rank strong{color: red;}
+  .rank, .vp, .win, .draw, .loss{
+    width: 40px;
+  }
+  .bp{
+    width: 60px;
+  }
+  &.stroke::before{position:absolute;
+    top:-1px;
+    left:0;
+    width:100%;
+    height:32px;
+    box-sizing:border-box;
+    content:'';
+    border:2px solid #ffde00;
+  }
+}
+
+.fl_wrap{
+  li > a{
+    display: block;
+    position: relative;
+  }
+  .rank-label{
+    position: absolute;
+    background-color: coral;
+    color: #000;
+    z-index: 3;
+    left: 10px;
+    bottom: -10px;
+    font-size: 11px;
+    padding: 5px;
+  }
+}
+
+.vt-liner-banner{
+  background-color: #fafafa;
+  border-bottom: 1px solid #e5e5e5;
+  height: 48px;
+  position: relative;
+  h5{
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    a, span{
+      @include ir2($view-tit)
+    }
+  }
+  a{
+    display: block;
+  }
+  .label{
+    position: absolute;
+    right: 13px;
+    top: 13px;
+    font-size: 0;
+  }
+  .sstit-vt,
+  .sstit-date{
+    position: relative;
+    left: 0;
+    top: 5px;
+    margin-right: 10px;
+  }
+  .stit-d{
+    @include ir2($stit-d);
+  }
+  .sstit-vt{
+    @include ir2($sstit-vt);
+  }
+  .sstit-date{
+    @include ir2($sstit-date);
+  }
+  .stit-dday{
+    @include ir2($stit-dday);
+    position: relative;
+    top: -2px;
+    left: 2px;
+  }
+  .sn1{
+    margin: 0 2px;
+    position: relative;
+    left: 0;
+    top: 1px;
+  }
+
+  .dot{
+    display: inline-block;
+    vertical-align: top;
+    width: 3px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: $mcolor;
+    position: relative;
+    top: 16px;
+    left: 0;
+    margin: 0 2px;
+  }
+  .bar{
+    display: inline-block;
+    width: 7px;
+    height: 2px;
+    background-color: $mcolor;
+    position: relative;
+    left: 0;
+    top: 9px;
+    margin: 0 3px;
+  }
+
+
+
+
+
+  $spog: $sn1, $sn2, $sn3, $sn4, $sn5, $sn6, $sn7, $sn8, $sn9;
+
+  @for $i from 1 through 9 {
+    .sn#{$i} {
+      color: transparent;
+      @include ir2(nth($spog, $i));
+    }
+  }
+  .sn0{
+    color: transparent;
+    @include ir2($sn0);
+  }
+  .sn1{
+    position: relative;
+    top: -1px;
+    background-position-y: -187px;
+  }
+  .sn5{
+    //background-position-y: -124px;
+  }
+}
+// 하단 선거안내 배너
+.guide-link a{
+  font-size: 17px;
+  display: block;
+  padding: 0 13px;
+  position: relative;
+  letter-spacing: -0.05em;
+  @include lh(44);
+  span{
+    padding-left: 7px;
+    color: $blue;
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    right: 13px;
+    top: 15px;
+    @include ir2($btn-more)
+  }
+}
+// 후보자 테이블
+.ccd-detail{
+
+  dl{
+    position: relative;
+    padding-left: 50px;
+    dt{
+      position: absolute;
+      left: 0;
+      top: 0;
+      line-height: 1.3;
+    }
+    dt + dd{
+      padding: 0 0 13px 0;
+      border: 0;
+    }
+    dd{
+      line-height: 1.3;
+      padding: 13px 0;
+      border-top: 1px solid #f2f2f2;
+      color: $black;
+      &:last-child{
+        padding-bottom: 0;
+      }
+    }
+  }
+  li{
+    border-bottom: 1px solid #f2f2f2;
+    padding: 15px 0;
+    &:first-child{
+      border-top: 1px solid #f2f2f2;
+    }
+    &:last-child{
+      border-bottom: 0;
+    }
+  }
+  .th{
+    padding-right: 25px;
+    color: #838383;
+    line-height: 1.3;
+    letter-spacing: -0.05em;
+  }
+  .td{
+    color: $black;
+    padding: 15px 0;
+    line-height: 1.3;
+    letter-spacing: -0.05em;
+  }
+}
+// 선거구해당지역
+.vt-select-area-notice{
+  padding: 0 13px 13px 13px;
+  font-size: 13px;
+  letter-spacing: -0.04em;
+  border-bottom: 1px solid #e6e6e6;
+  strong{
+    color: #3d67ae;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+    &::before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: -3px;
+      background-color: #3d67ae;
+    }
+  }
+  .detail{
+    color: #929292;
+  }
+}
+
+
+
+/**
+* jQuery asPieProgress v0.4.7
+* https://github.com/amazingSurge/jquery-asPieProgress
+*
+* Copyright (c) amazingSurge
+* Released under the LGPL-3.0 license
+*/
+.pie_progress{position:relative;text-align:center;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}.pie_progress__svg{position:relative;display:inline-block;width:100%;padding-bottom:100%;overflow:hidden;vertical-align:middle}.pie_progress__svg svg{position:absolute;top:0;left:0;display:inline-block;width:100%;height:100%;margin:0 auto}.pie_progress__content,.pie_progress__icon,.pie_progress__label,.pie_progress__number{position:absolute;top:50%;left:0;width:100%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}.pie_progress__number{font-size:42px}.pie_progress__label{margin-top:32px;font-size:12px}
+/*# sourceMappingURL=asPieProgress.min.css.map */
+
+.pie_progress__number{
+  font-size: 15px;
+}
+.pie_progress__label{
+  margin-top: 20px;
+  font-size: 11px;
+}
+
+.vt-graph{
+  position: relative;
+}
+.selectData {
+  position: absolute;
+  top: 0;
+  left: 13px;
+  width: 130px;
+  height: 83px;
+  padding: 0 0 0 7px;
+  background-color: #fff;
+}
+.selectData .crntime {
+  font-size: 55px;
+  letter-spacing: -2px;
+  color: #ff5252;
+  font-weight: 100;
+  font-family: HelveticaNeue-UltraLight, HelveticaNeue-Light, AppleSDGothicNeo-UltraLight, AppleSDGothicNeo-Light, sans-serif-thin, sans-serif-light, sans-serif;
+}
+.selectData .crntime span {
+  padding-left: 3px;
+  font-size: 35px;
+}
+.selectData .pasttime {
+  margin-top: 3px;
+  font-size: 15px;
+  letter-spacing: -1px;
+  color: #838383;
+}
+.selectData .pasttime .data19 {
+  position: relative;
+  top: 0;
+  display: inline-block;
+}
+// TIME SELECT
+.timeSelect {
+  position: relative;
+  margin: 8px 13px 0;
+  overflow: hidden;
+}
+.timeSelect a {
+  float: left;
+  width: 8.3%;
+  height: 24px;
+  line-height: 24px;
+  font-size: 13px;
+  color: #333;
+  text-align: center;
+}
+.timeSelect a span {
+  display: block;
+  width: 24px;
+  height: 24px;
+  line-height: 25px;
+  margin: 0 auto;
+}
+.timeSelect a.select span {
+  color: #fff;
+  background-color: #ff5252;
+  border-radius: 13px;
+}
+.time-label{
+  .lalabel{
+    border: 1px solid #000;
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 5px;
+    padding: 0 5px;
+    @include lh(20);
+    > span{
+      color: red;
+    }
+  }
+}
+
+
+
+
+
+
+.cdPcntVote {
+  position: relative;
+  height: 93px;
+  margin-top: 10px;
+  padding: 0 13px;
+}
+/* line 179, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote a {
+  display: block;
+}
+/* line 180, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ibox {
+  position: absolute;
+  top: 0;
+  left: 13px;
+  width: 70px;
+  height: 93px;
+  overflow: hidden;
+}
+/* line 182, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ibox img {
+  display: block;
+  border: 1px solid #e5e5e5;
+}
+/* line 183, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ibox .cdNum {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  min-width: 35px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 12px;
+  letter-spacing: -1px;
+  text-align: center;
+  color: #fff;
+  background: rgba(17, 17, 17, 0.7);
+}
+/* line 184, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox {
+  padding-top: 17px;
+  padding-left: 90px;
+  letter-spacing: -0.07em;
+}
+/* line 185, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox .cdname {
+  font-size: 15px;
+  color: #111;
+}
+/* line 186, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox .cdname .party {
+  padding-left: 5px;
+}
+/* line 187, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan01 .party {
+  color: #2155eb;
+}
+/* line 188, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan02 .party {
+  color: #dd3231;
+}
+/* line 189, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan03 .party {
+  color: #007746;
+}
+/* line 190, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan04 .party {
+  color: #109fcd;
+}
+/* line 191, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan05 .party {
+  color: #f49000;
+}
+/* line 192, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan06 .party {
+  color: #5e6271;
+}
+/* line 193, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox .crntPcnt {
+  margin-top: 10px;
+}
+/* line 194, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox .crntPcnt .percent {
+  font-size: 22px;
+  font-weight: 700;
+}
+/* line 195, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.safari .cdPcntVote .ifBox .crntPcnt .percent {
+  font-weight: 500;
+}
+/* line 196, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan01 .crntPcnt .percent {
+  color: #2155eb;
+}
+/* line 197, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan02 .crntPcnt .percent {
+  color: #dd3231;
+}
+/* line 198, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan03 .crntPcnt .percent {
+  color: #007746;
+}
+/* line 199, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan04 .crntPcnt .percent {
+  color: #109fcd;
+}
+/* line 200, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan05 .crntPcnt .percent {
+  color: #f49000;
+}
+/* line 201, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan06 .crntPcnt .percent {
+  color: #5e6271;
+}
+/* line 202, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox .crntPcnt .percent em {
+  font-size: 18px;
+}
+/* line 203, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox .crntPcnt .pbarBox {
+  position: relative;
+  margin-top: 4px;
+  height: 23px;
+  background-color: #f1f2f5;
+}
+/* line 204, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox .crntPcnt .pbarBox div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 23px;
+}
+/* line 205, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan01 .crntPcnt .pbarBox div {
+  background-color: #2155eb;
+}
+/* line 206, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan02 .crntPcnt .pbarBox div {
+  background-color: #dd3231;
+}
+/* line 207, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan03 .crntPcnt .pbarBox div {
+  background-color: #007746;
+}
+/* line 208, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan04 .crntPcnt .pbarBox div {
+  background-color: #109fcd;
+}
+/* line 209, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan05 .crntPcnt .pbarBox div {
+  background-color: #f49000;
+}
+/* line 210, f:\uidev\trunk\_nate\media\new_trunk\special\ele2017\m\less\style\component.less */
+.cdPcntVote .ifBox.clan06 .crntPcnt .pbarBox div {
+  background-color: #5e6271;
+}
+
+

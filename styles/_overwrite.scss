@@ -1,0 +1,123 @@
+// 기사뷰만 해당
+hr{
+  display: none;
+}
+aside.news_point{
+  .votePhoto_wrap{
+    margin-bottom: 0;
+  }
+  .vt-cluster [data-fwrapper]{
+    .lt1:first-child .tb{
+      height: 90px;
+    }
+    .lt1:first-child  .ib +.tb{
+      height: auto;
+    }
+  }
+}
+aside.news_point .vt-overwrite h2{
+  padding-left: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-right: 0;
+}
+
+aside.news_point .vt-cluster .mlt01{
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+aside.news_point{
+  // 지방선거 포토
+  .votePhoto_wrap{
+    overflow:hidden;
+    h2{
+      @include h2-reset();
+      padding-bottom: 0;
+      margin-top: 0;
+    }
+    .more-cluster{
+      @include vt-more(0, 12px);
+    }
+    .votePhoto_data{
+      ul{padding-left:11px}
+      img{display:block;width:125px;height:90px}
+      li{float:left}
+      a{position:relative;display:block;width:125px}
+      a span::before{
+        content: '';
+        position: absolute;
+        width: 123px;
+        height: 88px;
+        border: 1px solid #000;
+        display: block;
+        left: 0;
+        top: 0;
+        opacity: .1;
+      }
+      a span{display:-webkit-box;margin-top:5px;overflow:hidden;font-size:14px;line-height:130%;text-align:center;text-overflow:ellipsis;word-break:break-all;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+      a::before{position:absolute;top:75px;left:7px;z-index:10;width:10px;height:8px;content:'';background-color:#fff}
+      a::after{position:absolute;top:77px;left:9px;width:9px;height:7px;content:'';border-right:1px solid #fff;border-bottom:1px solid #fff}
+    }
+  }
+  //END 지방선거 포토
+}
+
+#vote-view{
+  .bt_banner{
+    border-bottom: 1px solid #e0e0e0;
+  }
+}
+
+
+
+.rwd_right .news_point{
+  .vt-cluster{
+    .mlt01 .lt1 a .short,
+    .is_card .mlt01 .lt1 a .short{
+      -webkit-line-clamp: 2;
+    }
+    .mlt01 ul .ep2 .tit{
+      -webkit-line-clamp: 2;
+    }
+    .mlt01 .lt1{
+      height: 90px;
+    }
+    .mlt01 .contents1 h2{
+      padding: 0;
+      margin: 0;
+    }
+    .pageNav{
+      padding-bottom: 28px;
+    }
+  }
+  .vt-space{
+    border-bottom: 0;
+  }
+  .reply_list + .vt-liner-banner{
+    margin-top: -15px;
+  }
+}
+.reply_banner.vote2018{
+  font-size: 0;
+  margin: 0;
+}
+.reply_banner.vote2018 + .write_btn{
+  margin-top: 0;
+}
+
+
+@media (min-width:668px){
+  #vote-view{
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-bottom: 1px solid #ddd;
+    .vt-liner-banner{
+      display: none;
+    }
+    .news_cmt:after{
+      display: none;
+    }
+  }
+}
+
